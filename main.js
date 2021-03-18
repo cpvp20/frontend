@@ -19,10 +19,12 @@ async function getResponse() {
     };
     response = await fetch(url, options);
     data = await response.json();
-    if (data) {
-        console.log(data);
-        document.querySelector('#respuesta').innerHTML = "sucess";
+    if (data.status==200) {
+        result = data.result;
+        var respuesta = `<h2>document_tone</h2><p>${JSON.stringify(result.document_tone)}</p> <h2>sentences_tone</h2><p>${JSON.stringify(result.sentences_tone)}</p>`;
+        console.log(respuesta);
+        document.querySelector('#respuesta').insertAdjacentHTML('beforeend', respuesta);
     } else {
-        alert('Error ' + request.status + ': ' + request.responseText); //error 
+        alert('Error ' + reponse.status + ': ' + reponse.statusText); //error 
     }
 }
