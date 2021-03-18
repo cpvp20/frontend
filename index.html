@@ -9,35 +9,15 @@
 </head>
 
 <body>
+    <h1>Examen Caro</h1>
+
     <form id="form">
-        <input required name="input" id="input"></input>
+        <input required name="texto" id="texto"></input>
         <button type="submit">Enter</button>
+        <span id="respuesta"></span>
     </form>
 </body>
 
-<script>
-    let form = document.querySelector('#form');
-
-    formAgregar.addEventListener("submit", function (e) {
-        e.preventDefault(); // para que no te recargue la página cuando sometes el formulario
-
-        let input = {
-            "text": form.input.value,
-        };
-        //Manda la información al back-end  
-        let request = new XMLHttpRequest();
-        request.open('POST', 'url');
-        request.setRequestHeader('Content-Type', 'application/json');
-        request.send([JSON.stringify(input)]);
-
-        request.onload = () => {
-            if (request.status == 200) {
-                alert('exito');
-            } else {
-                alert('Error ' + request.status + ': ' + request.responseText); //error 
-            }
-        };
-    });
-</script>
+<script src="./main.js"></script>
 
 </html>
