@@ -22,8 +22,7 @@ async function getResponse() {
     if (data.status==200) {
         result = data.result;
         var respuesta = `<h2>document_tone</h2><p>${JSON.stringify(result.document_tone)}</p> <h2>sentences_tone</h2><p>${JSON.stringify(result.sentences_tone)}</p>`;
-        console.log(respuesta);
-        document.querySelector('#respuesta').insertAdjacentHTML('beforeend', respuesta);
+        document.querySelector('#respuesta').innerHTML= respuesta;
     } else {
         alert('Error ' + reponse.status + ': ' + reponse.statusText); //error 
     }
